@@ -2,24 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../common/Button';
 
-const PokemonCard = ({ pokemon, addDexList }) => {
-  const { img_url, korean_name, types, id } = pokemon;
+const DashCard = ({ pokemon, removeDexList }) => {
+  const { img_url, korean_name, id } = pokemon;
 
   return (
-    <CardLi>
+    <DastCardLi>
       <img src={img_url} alt="pocketmonImg" />
       <h3>{korean_name}</h3>
-      <p>{types}</p>
-      <p>No. {id}</p>
-      <Button onClick={() => addDexList(id)}>ADD</Button>
-    </CardLi>
+      <Button onClick={() => removeDexList(id)}>DELETE</Button>
+    </DastCardLi>
   );
 };
 
 //style
-const CardLi = styled.li`
+const DastCardLi = styled.li`
   width: 200px;
-  height: 300px;
+  height: 200px;
   border-radius: 10px;
   background: #fff;
   border: 1px solid #777;
@@ -34,4 +32,4 @@ const CardLi = styled.li`
   }
 `;
 
-export default PokemonCard;
+export default DashCard;

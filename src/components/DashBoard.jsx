@@ -1,17 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import DashCard from './DashCard';
 
-const DashBoard = ({ pokemonList, setPokemonList }) => {
+const DashBoard = ({ dexList, removeDexList }) => {
   return (
     <DashWrapper>
       <TitleH1>나만의 포켓몬</TitleH1>
       <DexUl>
-        <DexLi>1</DexLi>
-        <DexLi>2</DexLi>
-        <DexLi>3</DexLi>
-        <DexLi>4</DexLi>
-        <DexLi>5</DexLi>
-        <DexLi>6</DexLi>
+        {dexList ? (
+          dexList.map((catchedPokemon) => {
+            return (
+              <DashCard
+                key={catchedPokemon.id}
+                pokemon={catchedPokemon}
+                removeDexList={removeDexList}
+              />
+            );
+          })
+        ) : (
+          <p>아직 잡은 포켓몬이 없군요!</p>
+        )}
       </DexUl>
     </DashWrapper>
   );
@@ -20,7 +28,7 @@ const DashBoard = ({ pokemonList, setPokemonList }) => {
 //style
 const DashWrapper = styled.div`
   width: 900px;
-  height: 250px;
+  height: 300px;
   border-radius: 20px;
   background: #fff;
   padding: 20px;

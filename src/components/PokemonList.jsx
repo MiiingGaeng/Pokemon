@@ -2,11 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
 
-const PokemonList = ({ pokemonList, setPokemonList }) => {
+const PokemonList = ({ pokemonList, setPokemonList, addDexList }) => {
   return (
     <ListWrapper>
       {pokemonList.map((pokemon) => {
-        return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+        return (
+          <PokemonCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            addDexList={addDexList}
+          />
+        );
       })}
     </ListWrapper>
   );
