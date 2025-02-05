@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
 
-const PokemonList = ({ pokemonList, setPokemonList, addDexList }) => {
+const PokemonList = ({ pokemonList, addDexList }) => {
   return (
     <ListWrapper>
       {pokemonList.map((pokemon) => {
@@ -10,8 +10,13 @@ const PokemonList = ({ pokemonList, setPokemonList, addDexList }) => {
           <PokemonCard
             key={pokemon.id}
             pokemon={pokemon}
-            addDexList={addDexList}
-          />
+            onClick={(e) => {
+              e.stopPropagation();
+              addDexList(pokemon.id);
+            }}
+          >
+            ADD
+          </PokemonCard>
         );
       })}
     </ListWrapper>

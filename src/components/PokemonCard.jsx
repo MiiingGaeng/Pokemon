@@ -1,17 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../common/Button';
+import { useNavigate } from 'react-router-dom';
 
-const PokemonCard = ({ pokemon, addDexList }) => {
-  const { img_url, korean_name, types, id } = pokemon;
+const PokemonCard = ({ children, pokemon, onClick }) => {
+  //props
+  const { id, korean_name, types, img_url } = pokemon;
+
+  const navigate = useNavigate();
+  const goToDetail = (id) => {
+    navigate(`/detail?id=${id}`);
+  };
 
   return (
-    <CardLi>
-      <img src={img_url} alt="pocketmonImg" />
+    <CardLi onClick={() => goToDetail(id)}>
+      <img src={img_url} alt="card_pocketmonImg" />
       <h3>{korean_name}</h3>
       <p>{types}</p>
       <p>No. {id}</p>
-      <Button onClick={() => addDexList(id)}>ADD</Button>
+      <Button onClick={onClick}>{children}</Button>
     </CardLi>
   );
 };
@@ -19,7 +26,7 @@ const PokemonCard = ({ pokemon, addDexList }) => {
 //style
 const CardLi = styled.li`
   width: 200px;
-  height: 300px;
+  height: 200px;
   border-radius: 10px;
   background: #fff;
   border: 1px solid #777;

@@ -17,7 +17,6 @@ const Dex = () => {
     const catchPokemon = [...pokemonList].find((pokemon) => pokemon.id === id);
     const newDexList = [...dexList, catchPokemon];
 
-    console.log('newDexList', newDexList);
     //예외처리 : dexList가 6개 이상이면 return
     if (newDexList.length > 6) {
       alert('더이상 잡을 수 없어요!');

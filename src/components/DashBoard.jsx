@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DashCard from './DashCard';
+import PokemonCard from './PokemonCard';
 
 const DashBoard = ({ dexList, removeDexList }) => {
   return (
@@ -10,11 +10,16 @@ const DashBoard = ({ dexList, removeDexList }) => {
         {dexList ? (
           dexList.map((catchedPokemon) => {
             return (
-              <DashCard
+              <PokemonCard
                 key={catchedPokemon.id}
                 pokemon={catchedPokemon}
-                removeDexList={removeDexList}
-              />
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeDexList(catchedPokemon.id);
+                }}
+              >
+                DELETE
+              </PokemonCard>
             );
           })
         ) : (
