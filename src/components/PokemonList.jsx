@@ -1,9 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
 import { ListWrapper } from '../styles/styles';
+import { useContext } from 'react';
+import { DexContext } from '../context/DexContext.jsx';
 
-const PokemonList = ({ pokemonList, addDexList }) => {
+const PokemonList = () => {
+  const { pokemonList, addDexList } = useContext(DexContext);
+
   return (
     <ListWrapper>
       {pokemonList.map((pokemon) => {

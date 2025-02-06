@@ -51,6 +51,45 @@ export const DexWrapper = styled.div`
   gap: 20px;
 `;
 
+//DashBoard.jsx
+export const DashWrapper = styled.div`
+  width: 900px;
+  height: 300px;
+  border-radius: 20px;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TitleH1 = styled.h1`
+  font-size: 20px;
+  width: 80%;
+  height: 50px;
+  border-bottom: 1px solid #ffd260;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 20px;
+`;
+
+export const DexUl = styled.ul`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const DexLi = styled.li`
+  width: 100px;
+  height: 100px;
+  border: 1px dotted #777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 //-----Dex Detail-----
 //PokemonList.jsx
 export const ListWrapper = styled.div`

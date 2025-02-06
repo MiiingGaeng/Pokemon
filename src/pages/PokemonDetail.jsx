@@ -3,15 +3,19 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import MOCK_DATA from '../MOCK_DATA';
 import Button from '../common/Button';
 import { ButtonWrapper, DetailWrapper } from '../styles/styles';
+import { useContext } from 'react';
+import { DexContext } from '../context/DexContext.jsx';
 
 const PokemonDetail = () => {
+  //context
+  const { pokemonList, addDexList, removeDexList } = useContext(DexContext);
+
   //query params에서 해당 id 값 가져오기
   const [searchParams] = useSearchParams();
   const selectedId = searchParams.get('id');
 
   //포켓몬 전체 리스트 - 해당 id의 데이터 불러오기
-  const pokemonData = MOCK_DATA;
-  const selectedPokemon = pokemonData.find(
+  const selectedPokemon = pokemonList.find(
     (pokemon) => pokemon.id === parseInt(selectedId)
   );
 

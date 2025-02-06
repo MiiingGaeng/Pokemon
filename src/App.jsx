@@ -1,13 +1,15 @@
 import React from 'react';
 import Router from './shared/Router';
-import { createGlobalStyle } from 'styled-components';
 import { Wrapper } from './styles/styles';
+import { DexProvider } from './context/DexContext';
 
 const App = () => {
   return (
     <>
       <Wrapper />
-      <Router />
+      <DexProvider>
+        <Router />
+      </DexProvider>
     </>
   );
 };
