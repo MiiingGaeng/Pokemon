@@ -5,20 +5,13 @@ import { useContext } from 'react';
 import { DexContext } from '../context/DexContext.jsx';
 
 const PokemonList = () => {
-  const { pokemonList, addDexList } = useContext(DexContext);
+  const { pokemonList } = useContext(DexContext);
 
   return (
     <ListWrapper>
       {pokemonList.map((pokemon) => {
         return (
-          <PokemonCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            onClick={(e) => {
-              e.stopPropagation();
-              addDexList(pokemon.id);
-            }}
-          >
+          <PokemonCard key={pokemon.id} pokemon={pokemon} isInList={true}>
             ADD
           </PokemonCard>
         );

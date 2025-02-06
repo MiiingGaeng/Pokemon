@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
 import { useContext } from 'react';
 import { DexContext } from '../context/DexContext';
@@ -7,7 +6,7 @@ import { DashWrapper, DexUl, TitleH1 } from '../styles/styles';
 
 const DashBoard = () => {
   //context
-  const { dexList, removeDexList } = useContext(DexContext);
+  const { dexList } = useContext(DexContext);
 
   return (
     <DashWrapper>
@@ -16,14 +15,7 @@ const DashBoard = () => {
         {dexList ? (
           dexList.map((catchedPokemon) => {
             return (
-              <PokemonCard
-                key={catchedPokemon.id}
-                pokemon={catchedPokemon}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  removeDexList(catchedPokemon.id);
-                }}
-              >
+              <PokemonCard key={catchedPokemon.id} pokemon={catchedPokemon}>
                 DELETE
               </PokemonCard>
             );

@@ -3,15 +3,20 @@ import { useState } from 'react';
 import { createContext } from 'react';
 import MOCK_DATA from '../MOCK_DATA';
 
-//Provider
 export const DexContext = createContext();
 
+//Provider
 export const DexProvider = ({ children }) => {
   //MOCK DATA
   const pokemonList = MOCK_DATA;
   //LocalStorage + state 변경
   const catchList = JSON.parse(localStorage.getItem('catchList')) || [];
   const [dexList, setDexList] = useState(catchList);
+
+  //catchList(localStorage)에 있는지 확인
+  const isCatched = (id) => {
+    return [...catchList].some((pokemon) => pokemon.id === id);
+  };
 
   //포켓몬 추가 로직
   const addDexList = (id) => {
@@ -55,6 +60,7 @@ export const DexProvider = ({ children }) => {
         setDexList,
         addDexList,
         removeDexList,
+        isCatched,
       }}
     >
       {children}
