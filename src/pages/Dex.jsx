@@ -3,6 +3,7 @@ import DashBoard from '../components/DashBoard';
 import styled from 'styled-components';
 import MOCK_DATA from '../MOCK_DATA.js';
 import { useState } from 'react';
+import { DexWrapper } from '../styles/styles.js';
 
 const Dex = () => {
   //data + state
@@ -56,18 +57,5 @@ const Dex = () => {
     </DexWrapper>
   );
 };
-
-//style
-const DexWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  background: #ffd260;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-`;
 
 export default Dex;

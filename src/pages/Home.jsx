@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { HomeWrapper, Logo } from '../styles/styles';
+import Button from '../common/Button';
 
 const Home = () => {
   //navi
@@ -9,21 +9,16 @@ const Home = () => {
 
   return (
     <HomeWrapper>
-      <h1>Pocketmon</h1>
-      <button onClick={() => navigate('/dex')}>포켓몬 도감 바로가기</button>
+      <Logo src="../images/pokemonLogo.png" alt="logo" />
+      <Button
+        onClick={() => navigate('/dex')}
+        $buttonWidth="200px"
+        $buttonHeight="40px"
+      >
+        포켓몬 도감 바로가기
+      </Button>
     </HomeWrapper>
   );
 };
-
-//style
-const HomeWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: #ffd260;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default Home;
