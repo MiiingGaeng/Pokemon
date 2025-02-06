@@ -1,10 +1,16 @@
 import React from 'react';
+import { StyledButton } from '../styles/styles';
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, children, $buttonWidth, $buttonHeight }) => {
   return (
-    <button type="button" onClick={onClick}>
+    <StyledButton
+      type="button"
+      onClick={onClick}
+      $buttonWidth={$buttonWidth}
+      $buttonHeight={$buttonHeight}
+    >
       {children}
-    </button>
+    </StyledButton>
   );
 };
 

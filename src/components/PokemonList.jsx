@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
+import { ListWrapper } from '../styles/styles';
 
 const PokemonList = ({ pokemonList, addDexList }) => {
   return (
@@ -22,18 +23,5 @@ const PokemonList = ({ pokemonList, addDexList }) => {
     </ListWrapper>
   );
 };
-
-//style
-const ListWrapper = styled.div`
-  width: 900px;
-  border-radius: 20px;
-  background: #fff;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-`;
 
 export default PokemonList;
