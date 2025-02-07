@@ -2,7 +2,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 //convention
 //main color: #ffd260 (butter yellow)
-//point color:
+//back color: #
+//point color: #ff7028 (orange)
 
 //App.jsx
 export const Wrapper = createGlobalStyle`
@@ -42,6 +43,7 @@ export const Logo = styled.img`
 export const DexWrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
+  padding: 20px;
   overflow: auto;
   background: #ffd260;
   display: flex;
@@ -53,8 +55,7 @@ export const DexWrapper = styled.div`
 
 //DashBoard.jsx
 export const DashWrapper = styled.div`
-  width: 900px;
-  height: 300px;
+  width: 80%;
   border-radius: 20px;
   background: #fff;
   padding: 20px;
@@ -64,36 +65,37 @@ export const DashWrapper = styled.div`
   align-items: center;
 `;
 
-export const TitleH1 = styled.h1`
-  font-size: 20px;
-  width: 80%;
-  height: 50px;
-  border-bottom: 1px solid #ffd260;
-  text-align: center;
-  line-height: 50px;
+export const DashLogo = styled.img`
+  width: 200px;
   margin-bottom: 20px;
 `;
 
 export const DexUl = styled.ul`
   width: 100%;
+  height: 250px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  border-top: 2px solid #ffd260;
 `;
 
 export const DexLi = styled.li`
-  width: 100px;
-  height: 100px;
-  border: 1px dotted #777;
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(https://i.pinimg.com/550x/f5/54/89/f5548916ca86b30f7b8f418e4c5c6794.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  overflow: hidden;
 `;
 
-//-----Dex Detail-----
 //PokemonList.jsx
 export const ListWrapper = styled.div`
-  width: 900px;
+  width: 80%;
   border-radius: 20px;
   background: #fff;
   padding: 20px;
@@ -102,24 +104,100 @@ export const ListWrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: auto;
+  gap: 20px;
 `;
 
+//-----Card-----
 //PokemonCard.jsx
-export const CardLi = styled.li`
-  width: 200px;
+export const Card = styled.li`
+  width: 150px;
   height: 200px;
   border-radius: 10px;
-  background: #fff;
-  border: 1px solid #777;
+  background: #ffd260;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+
+  &:hover > .card-inner {
+    transform: rotateY(180deg);
+  }
+`;
+
+export const CardInner = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+`;
+
+export const CardFront = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s;
+  gap: 3px;
+  background: #fff;
+  backface-visibility: hidden;
 
-  &:hover {
-    transform: scale(1.05);
+  img {
+    width: 100px;
+    height: 100px;
   }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+`;
+
+export const TypeText = styled.div`
+  display: inline-block;
+  width: 40px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  font-size: 12px;
+  border-radius: 3px;
+  padding: 1px;
+  color: #fff;
+  background-color: ${(props) => props.$typeColor};
+`;
+
+export const CardBack = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: #ffd260;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+
+  button {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+
+  img {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+`;
+
+export const CardLogo = styled(DashLogo)`
+  width: 100px;
 `;
 
 //---Detail---
@@ -127,7 +205,7 @@ export const CardLi = styled.li`
 export const DetailWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: #ffd260;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,9 +215,10 @@ export const DexImg = styled.div`
   position: relative;
   width: 760px;
   height: 550px;
-  background-image: url(https://flashmuseum.org/wp-content/uploads/2023/05/Pokedex_logo.png);
+  background-image: url(../../images/pokeDex.png);
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 35px;
 `;
 
 export const PokemonImg = styled.img`
@@ -171,6 +250,7 @@ export const PokemonName = styled.h3`
 
 export const PokemonId = styled.p`
   font-size: 12px;
+  margin-left: 1px;
 `;
 
 export const TypesWrapper = styled.div`
@@ -195,12 +275,12 @@ export const PokemonDescription = styled.p`
 
 export const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: 40px;
-  right: 62px;
+  bottom: 41px;
+  right: 63px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 19px;
+  gap: 21.5px;
 `;
 
 //---Commons---
@@ -210,7 +290,7 @@ export const StyledButton = styled.button`
   height: ${(props) => props.$buttonHeight};
   border-radius: 8px;
   background: #ff7028;
-  border: 1px solid #333;
+  border: none;
   color: #fff;
   font-size: 12px;
   cursor: pointer;

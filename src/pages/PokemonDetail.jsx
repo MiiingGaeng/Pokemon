@@ -33,8 +33,6 @@ const PokemonDetail = () => {
   //구조분해할당으로 값 꺼내기
   const { img_url, korean_name, id, types, description } = selectedPokemon;
 
-  console.log(types);
-
   //button - dex로 돌아가는 로직
   const navigate = useNavigate();
   const goToDex = () => {
@@ -50,7 +48,7 @@ const PokemonDetail = () => {
           <PokemonId>No. {id}</PokemonId>
           <TypesWrapper>
             {types.map((type) => (
-              <PokemonTypes>{type}</PokemonTypes>
+              <PokemonTypes key={type}>{type}</PokemonTypes>
             ))}
           </TypesWrapper>
           <PokemonDescription>{description}</PokemonDescription>
@@ -59,21 +57,21 @@ const PokemonDetail = () => {
           {isCatched(id) ? (
             <Button
               onClick={() => removeDexList(id)}
-              $buttonWidth="110px"
-              $buttonHeight="50px"
+              $buttonWidth="107px"
+              $buttonHeight="48px"
             >
               DELETE
             </Button>
           ) : (
             <Button
               onClick={() => addDexList(id)}
-              $buttonWidth="110px"
-              $buttonHeight="50px"
+              $buttonWidth="107px"
+              $buttonHeight="48px"
             >
               ADD
             </Button>
           )}
-          <Button onClick={goToDex} $buttonWidth="110px" $buttonHeight="50px">
+          <Button onClick={goToDex} $buttonWidth="107px" $buttonHeight="48px">
             RETURN TO DEX
           </Button>
         </ButtonWrapper>
