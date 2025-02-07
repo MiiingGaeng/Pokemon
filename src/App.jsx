@@ -1,17 +1,18 @@
 import React from 'react';
 import Router from './shared/Router';
 import { Wrapper } from './styles/styles';
-import { DexProvider } from './context/DexContext';
 import { ToastContainer } from 'react-toastify';
 import { Bounce } from 'react-toastify';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const App = () => {
   return (
     <>
       <Wrapper />
-      <DexProvider>
+      <Provider store={store}>
         <Router />
-      </DexProvider>
+      </Provider>
       <ToastContainer
         position="top-right"
         autoClose={3000}

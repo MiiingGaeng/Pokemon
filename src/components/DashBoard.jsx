@@ -1,12 +1,11 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
-import { useContext } from 'react';
-import { DexContext } from '../context/DexContext';
 import { DashLogo, DashWrapper, DexLi, DexUl } from '../styles/styles';
+import { useSelector } from 'react-redux';
 
 const DashBoard = () => {
-  //context
-  const { dexList } = useContext(DexContext);
+  //rtk
+  const dexList = useSelector((store) => store.dex.dexList);
 
   return (
     <DashWrapper>
