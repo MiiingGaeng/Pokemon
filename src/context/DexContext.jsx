@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import MOCK_DATA from '../MOCK_DATA';
+import MOCK_DATA from '../data/MOCK_DATA';
+import { toast } from 'react-toastify';
 
 export const DexContext = createContext();
 
@@ -25,20 +26,20 @@ export const DexProvider = ({ children }) => {
 
     //예외처리 : dexList가 6개 이상이면 return
     if (newDexList.length > 6) {
-      alert('더이상 잡을 수 없어요!');
+      toast.warning('더이상 잡을 수 없어요!');
       return;
     }
 
     //예외처리 : dexList에 이미 존재하면 return
     if (dexList.some((pokemon) => pokemon.id === id)) {
-      alert('이미 잡은 포켓몬이에요!');
+      toast.warning('이미 잡은 포켓몬이에요!');
       return;
     }
 
     localStorage.setItem('catchList', JSON.stringify(newDexList));
     setDexList(newDexList);
 
-    alert('야생의 포켓몬을 잡았습니다!');
+    toast.success('야생의 포켓몬을 잡았습니다!');
   };
 
   //포켓몬 삭제 로직
@@ -48,7 +49,7 @@ export const DexProvider = ({ children }) => {
     localStorage.setItem('catchList', JSON.stringify(newDexList));
     setDexList(newDexList);
 
-    alert('앗! 포켓몬이 풀숲으로 돌아갔습니다!');
+    toast.success('앗! 포켓몬이 풀숲으로 돌아갔습니다!');
   };
 
   return (
