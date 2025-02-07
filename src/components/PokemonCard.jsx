@@ -10,12 +10,22 @@ import {
   TypesWrapper,
   TypeText,
 } from '../styles/styles';
-import { useContext } from 'react';
-import { DexContext } from '../context/DexContext';
+import { useDispatch } from 'react-redux';
+import { addDexList, removeDexList, setDexList } from '../redux/dexSlice';
 
 const PokemonCard = ({ pokemon, isInList }) => {
-  //context
-  const { addDexList, removeDexList } = useContext(DexContext);
+  //rtk
+  const dispatch = useDispatch();
+
+  const handleAddEvent = (e) => {
+    e.stopPropagation();
+    dispatch(addDexList(id));
+  };
+
+  const handleRemoveEvent = (e) => {
+    e.stopPropagation();
+    dispatch(removeDexList(id));
+  };
 
   //props
   const { id, korean_name, types, img_url } = pokemon;
@@ -148,10 +158,7 @@ const PokemonCard = ({ pokemon, isInList }) => {
         <CardBack onClick={() => goToDetail(id)}>
           {!isInList ? (
             <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                removeDexList(id);
-              }}
+              onClick={handleRemoveEvent}
               $buttonWidth="120px"
               $buttonHeight="30px"
               id="card-btn"
@@ -160,10 +167,7 @@ const PokemonCard = ({ pokemon, isInList }) => {
             </Button>
           ) : (
             <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                addDexList(id);
-              }}
+              onClick={handleAddEvent}
               $buttonWidth="120px"
               $buttonHeight="30px"
               id="card-btn"

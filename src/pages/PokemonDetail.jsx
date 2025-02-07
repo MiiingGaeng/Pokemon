@@ -13,13 +13,24 @@ import {
   PokemonTypes,
   TypesWrapper,
 } from '../styles/styles';
-import { useContext } from 'react';
-import { DexContext } from '../context/DexContext.jsx';
+import MOCK_DATA from '../data/MOCK_DATA.js';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addDexList, removeDexList } from '../redux/dexSlice.js';
 
 const PokemonDetail = () => {
-  //context
-  const { pokemonList, addDexList, removeDexList, isCatched } =
-    useContext(DexContext);
+  //rtk
+  const pokemonList = MOCK_DATA;
+  const dexList = useSelector((store) => store.dex.dexList);
+  const isCatched = (id) => dexList.some((pokemon) => pokemon.id === id);
+
+  const dispatch = useDispatch();
+  const handleAddEvent = () => {
+    dispatch(addDexList(id));
+  };
+  const handleRemoveEvent = () => {
+    dispatch(removeDexList(id));
+  };
 
   //query params에서 해당 id 값 가져오기
   const [searchParams] = useSearchParams();
@@ -56,7 +67,7 @@ const PokemonDetail = () => {
         <ButtonWrapper>
           {isCatched(id) ? (
             <Button
-              onClick={() => removeDexList(id)}
+              onClick={handleRemoveEvent}
               $buttonWidth="107px"
               $buttonHeight="48px"
             >
@@ -64,7 +75,7 @@ const PokemonDetail = () => {
             </Button>
           ) : (
             <Button
-              onClick={() => addDexList(id)}
+              onClick={handleAddEvent}
               $buttonWidth="107px"
               $buttonHeight="48px"
             >
