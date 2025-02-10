@@ -9,7 +9,7 @@ const DashBoard = () => {
 
   return (
     <DashWrapper>
-      <DashLogo src="../images/pokemonLogo.png" alt="DashLogo" />
+      <DashLogo src="/images/pokemonLogo.png" alt="DashLogo" />
       <DexUl>
         {[...Array(6)].map((_, index) =>
           dexList[index] ? (
