@@ -28,14 +28,14 @@ const dexListSlice = createSlice({
         return;
       }
       //예외처리 : dexList가 6개 이상이면 return
-      if (dexList.length > 6) {
+      if (dexList.length >= 6) {
         toast.warning('더이상 잡을 수 없어요!');
         return;
       }
 
       //immer 라이브러리 => 불변성을 지킬 필요가 없다!
       state.dexList.push(catchPokemon);
-      localStorage.setItem('catchList', JSON.stringify(dexList));
+      localStorage.setItem('catchList', JSON.stringify([...state.dexList]));
 
       toast.success('야생의 포켓몬을 잡았습니다!');
     },
