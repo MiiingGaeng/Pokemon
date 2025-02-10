@@ -11,7 +11,7 @@ import {
   TypeText,
 } from '../styles/styles';
 import { useDispatch } from 'react-redux';
-import { addDexList, removeDexList, setDexList } from '../redux/dexSlice';
+import { addDexList, removeDexList } from '../redux/dexSlice';
 
 const PokemonCard = ({ pokemon, isInList }) => {
   //rtk
