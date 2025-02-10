@@ -1,6 +1,7 @@
 # Pokemon 😼
 
-Vite + React를 사용한 프로젝트로, 포켓몬의 정보를 확인하고 관심 포켓몬을 저장/삭제할 수 있는 dex 웹페이지 입니다.
+Vite + React를 사용한 프로젝트로, 포켓몬의 정보를 확인하고 관심 포켓몬을 저장/삭제할 수 있는 dex 웹페이지 입니다.<br>
+[프로젝트 URL 바로가기 💻](https://pokemon-five-swart.vercel.app/)
 <br><br>
 
 ## 프로젝트 미리보기🏅
