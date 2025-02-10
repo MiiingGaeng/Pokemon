@@ -6,14 +6,21 @@ Vite + React를 사용한 프로젝트로, 포켓몬의 정보를 확인하고 �
 ## 프로젝트 미리보기🏅
 
 - Home
+<img width="1440" alt="home" src="https://github.com/user-attachments/assets/d5decfa1-b1db-4aff-b6cc-89838e2d1d9d" />
 
 - Dex
+<img width="1440" alt="dex" src="https://github.com/user-attachments/assets/6da0f6ca-e6a1-4d15-8bc8-79d302c1fd90" />
 
 - Detail
+<img width="1440" alt="detail" src="https://github.com/user-attachments/assets/eda3e707-12f0-4bb1-841f-e36d1ff7adf9" />
 
 - Card
 
+![3d_animation](https://github.com/user-attachments/assets/ba39a7a8-f130-4552-9031-471038078867)
+
 - Toast
+
+![toast](https://github.com/user-attachments/assets/7e54bbf7-d7ea-423c-b91f-7adc6f7b6076)
 
   <br><br>
 
