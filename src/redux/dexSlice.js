@@ -55,5 +55,5 @@ const dexListSlice = createSlice({
   },
 });
 
-export const { setDexList, addDexList, removeDexList } = dexListSlice.actions;
+export const { addDexList, removeDexList } = dexListSlice.actions;
 export default dexListSlice.reducer;
