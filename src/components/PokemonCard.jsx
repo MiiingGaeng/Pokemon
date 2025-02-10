@@ -12,6 +12,7 @@ import {
 } from '../styles/styles';
 import { useDispatch } from 'react-redux';
 import { addDexList, removeDexList } from '../redux/dexSlice';
+import logo from '/images/pokemonLogo.png';
 
 const PokemonCard = ({ pokemon, isInList }) => {
   //rtk
@@ -175,7 +176,7 @@ const PokemonCard = ({ pokemon, isInList }) => {
               ADD
             </Button>
           )}
-          <CardLogo src="/images/pokemonLogo.png" alt="CardLogo" />
+          <CardLogo src={logo} alt="CardLogo" />
         </CardBack>
       </CardInner>
     </Card>

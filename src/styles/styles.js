@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import pokeDex from '/images/pokeDex.png';
 
 //convention
 //main color: #ffd260 (butter yellow)
@@ -215,7 +216,7 @@ export const DexImg = styled.div`
   position: relative;
   width: 760px;
   height: 550px;
-  background-image: url(../../images/pokeDex.png);
+  background-image: url(${pokeDex});
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 35px;
