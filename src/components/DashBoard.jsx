@@ -2,6 +2,7 @@ import React from 'react';
 import PokemonCard from './PokemonCard';
 import { DashLogo, DashWrapper, DexLi, DexUl } from '../styles/styles';
 import { useSelector } from 'react-redux';
+import logo from '/images/pokemonLogo.png';
 
 const DashBoard = () => {
   //rtk
@@ -9,7 +10,7 @@ const DashBoard = () => {
 
   return (
     <DashWrapper>
-      <DashLogo src="/images/pokemonLogo.png" alt="DashLogo" />
+      <DashLogo src={logo} alt="DashLogo" />
       <DexUl>
         {[...Array(6)].map((_, index) =>
           dexList[index] ? (
