@@ -175,7 +175,7 @@ const PokemonCard = ({ pokemon, isInList }) => {
               ADD
             </Button>
           )}
-          <CardLogo src="../images/pokemonLogo.png" alt="CardLogo" />
+          <CardLogo src="/images/pokemonLogo.png" alt="CardLogo" />
         </CardBack>
       </CardInner>
     </Card>

@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <HomeWrapper>
-      <Logo src="../images/pokemonLogo.png" alt="HomeLogo" />
+      <Logo src="/images/pokemonLogo.png" alt="HomeLogo" />
       <Button
         onClick={() => navigate('/dex')}
         $buttonWidth="200px"
