@@ -64,6 +64,13 @@ Vite + React를 사용한 프로젝트로, 포켓몬의 정보를 확인하고 �
 <br>해결 ▶️ styled-components 속성에 `$ prefix` 추가, `isInList` 속성 추가
 <br>교훈 ▶️ styled-components에 대한 연습 필요
 
+[TroubleShooting 3 : Vercel 배포](https://velog.io/@miiing_gaeng/%ED%8F%AC%EC%BC%93%EB%AA%AC-%EB%8F%84%EA%B0%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-TroubleShooting-3-Vercel-%EB%B0%B0%ED%8F%AC)
+
+[요약]<br>
+문제 ▶️ React와 Vercel의 동작 원리 차이로 인한 새로고침 오류 발생 및 이미지 경로 유실
+<br>해결 ▶️ import문법으로 이미지 경로 유실 방지, `vercel.json` 파일로 해결
+<br>교훈 ▶️ React와 Vercel의 동작 원리 학습, public/src 폴더, 절대경로/상대경로의 차이
+
 ## 프로젝트 후기✍️
 
 이번 프로젝트의 큰 목표는 prop-drilling에서 Context API와 Redux(RTK)로 리팩토링하는 방법을 연습하는 것이다. 처음 써보는 문법이라 어색하고 두려웠지만, 여러번 코드를 작성하다보니 익숙해질 수 있었다. 뭐든 처음이 가장 어렵고, 연습을 꾸준히 반복하다보면 금방 내 것이 된다. 앞으로 많은 문법들을 배우면서 이 점을 잊지말자!<br>
